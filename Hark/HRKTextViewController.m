@@ -188,7 +188,7 @@
         // the current language code
         NSString *langCode = [[language componentsSeparatedByString:@"-"] firstObject];
         for (NSString *lang in availableLanguages) {
-            if ([lang hasPrefix:langCode]) {
+            if (langCode && [lang hasPrefix:langCode]) {
                 return lang;
             }
         }

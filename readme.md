@@ -2,6 +2,8 @@ Hark is a text to speech app I built in 3 hours based on the new [`AVSpeechSynth
 
 I first learned about this SDK from [Mattt Thompson](https://twitter.com/mattt)'s great [NSHipster blog post about iOS 7](nshipster.com/ios7).
 
+![](https://raw.github.com/kgn/Hark/master/screen.png)
+
 Check out [this video](https://vimeo.com/75465205) showing how the app works and why I built it.
 
 This app will be available on the App Store for free and I'm releasing the source as an example for other developers to encourage you to put text to speech in your apps!

@@ -166,7 +166,7 @@
     
     // Default to the current system language
     NSString *currentLanguage = [AVSpeechSynthesisVoice currentLanguageCode];
-    if (![currentLanguage hasPrefix:language]) {
+    if (language && ![currentLanguage hasPrefix:language]) {
         NSArray *availableLanguages = [[AVSpeechSynthesisVoice speechVoices] valueForKeyPath:@"language"];
         
         // See if the detected language is in the available speech voices
@@ -188,7 +188,7 @@
         // the current language code
         NSString *langCode = [[language componentsSeparatedByString:@"-"] firstObject];
         for (NSString *lang in availableLanguages) {
-            if (langCode && [lang hasPrefix:langCode]) {
+            if ([lang hasPrefix:langCode]) {
                 return lang;
             }
         }

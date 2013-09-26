@@ -156,44 +156,35 @@
     [self.speechSynthesizer speakUtterance:utterance];
 }
 
-// Determine best language language for the string from up to the first 100 characters
-- (NSString *)bestLanguageForString:(NSString *)text {
-    return (NSString *)CFBridgingRelease(CFStringTokenizerCopyBestStringLanguage((CFStringRef)text, CFRangeMake(0, text.length < 100 ? text.length : 100)));
-}
-
-- (NSString *)voiceLanguageForText:(NSString *)text {
-    NSString *language = [self bestLanguageForString:text];
-    
-    // Default to the current system language
+- (NSString *)voiceLanguageForText:(NSString *)text{
+    CFRange range = CFRangeMake(0, MIN(400, text.length));
     NSString *currentLanguage = [AVSpeechSynthesisVoice currentLanguageCode];
-    if (![currentLanguage hasPrefix:language]) {
+    NSString *language = (NSString *)CFBridgingRelease(CFStringTokenizerCopyBestStringLanguage((CFStringRef)text, range));
+    if(language && ![currentLanguage hasPrefix:language]){
         NSArray *availableLanguages = [[AVSpeechSynthesisVoice speechVoices] valueForKeyPath:@"language"];
-        
-        // See if the detected language is in the available speech voices
-        if ([availableLanguages containsObject:language]) {
+        if([availableLanguages containsObject:language]){
             return language;
         }
-        
+
+        // TODO: also support Cantonese (zh-HK)
         // Language code translations for simplified and traditional Chinese
-        if ([language isEqual:@"zh-Hans"]){
+        if([language isEqualToString:@"zh-Hans"]){
             return @"zh-CN";
         }
-        
-        // TODO: also support Cantonese (zh-HK)
-        if ([language isEqual:@"zh-Hant"]){
+        if([language isEqualToString:@"zh-Hant"]){
             return @"zh-TW";
         }
-        
-        // Fall back to searching the availableLanguages array for languages starting with
-        // the current language code
-        NSString *langCode = [language substringToIndex:2];
-        for (NSString *lang in availableLanguages) {
-            if ([lang hasPrefix:langCode]) {
-                return lang;
+
+        // Fall back to searching for languages starting with the current language code
+        NSString *languageCode = [[language componentsSeparatedByString:@"-"] firstObject];
+        for(NSString *language in availableLanguages){
+            if([language hasPrefix:languageCode]){
+                NSLog(@"Falling back on: %@", language);
+                return language;
             }
         }
     }
-    
+
     return currentLanguage;
 }
 

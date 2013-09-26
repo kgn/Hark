@@ -156,9 +156,9 @@
     [self.speechSynthesizer speakUtterance:utterance];
 }
 
-// Determine best language language for the string from up to the first 100 characters
+// Determine best language language for the string from up to the first 400 characters
 - (NSString *)bestLanguageForString:(NSString *)text {
-    return (NSString *)CFBridgingRelease(CFStringTokenizerCopyBestStringLanguage((CFStringRef)text, CFRangeMake(0, text.length < 100 ? text.length : 100)));
+    return (NSString *)CFBridgingRelease(CFStringTokenizerCopyBestStringLanguage((CFStringRef)text, CFRangeMake(0, MIN(400, text.length))));
 }
 
 - (NSString *)voiceLanguageForText:(NSString *)text {

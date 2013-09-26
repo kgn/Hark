@@ -1,0 +1,526 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		83254B3917F2E538000E9C54 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83254B3817F2E538000E9C54 /* AdSupport.framework */; };
+		83254B3B17F2E540000E9C54 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 83254B3A17F2E540000E9C54 /* libz.dylib */; };
+		83254B3D17F2E54D000E9C54 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 83254B3C17F2E54D000E9C54 /* libsqlite3.dylib */; };
+		83254B3F17F2E558000E9C54 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83254B3E17F2E558000E9C54 /* SystemConfiguration.framework */; };
+		834B08F617F2B89D0011D376 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 834B08F517F2B89D0011D376 /* Foundation.framework */; };
+		834B08F817F2B89D0011D376 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 834B08F717F2B89D0011D376 /* CoreGraphics.framework */; };
+		834B08FA17F2B89D0011D376 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 834B08F917F2B89D0011D376 /* UIKit.framework */; };
+		834B090017F2B89D0011D376 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 834B08FE17F2B89D0011D376 /* InfoPlist.strings */; };
+		834B090217F2B89D0011D376 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 834B090117F2B89D0011D376 /* main.m */; };
+		834B090617F2B89D0011D376 /* HRKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 834B090517F2B89D0011D376 /* HRKAppDelegate.m */; };
+		834B090817F2B89D0011D376 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 834B090717F2B89D0011D376 /* Images.xcassets */; };
+		834B090F17F2B89D0011D376 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 834B090E17F2B89D0011D376 /* XCTest.framework */; };
+		834B091017F2B89D0011D376 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 834B08F517F2B89D0011D376 /* Foundation.framework */; };
+		834B091117F2B89D0011D376 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 834B08F917F2B89D0011D376 /* UIKit.framework */; };
+		834B091917F2B89D0011D376 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 834B091717F2B89D0011D376 /* InfoPlist.strings */; };
+		834B091B17F2B89D0011D376 /* HarkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 834B091A17F2B89D0011D376 /* HarkTests.m */; };
+		834B092617F2B8AD0011D376 /* HRKTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 834B092517F2B8AD0011D376 /* HRKTextViewController.m */; };
+		834B096817F2C3730011D376 /* UIAlertView+BBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 834B096717F2C3730011D376 /* UIAlertView+BBlock.m */; };
+		834B096B17F2C4020011D376 /* BBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 834B096A17F2C4020011D376 /* BBlock.m */; };
+		834B096E17F2C4C10011D376 /* NSTimer+BBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 834B096D17F2C4C10011D376 /* NSTimer+BBlock.m */; };
+		834B097717F2D5DA0011D376 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 834B097617F2D5DA0011D376 /* UIColor+Hex.m */; };
+		834B097A17F2D9570011D376 /* KGKeyboardChangeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 834B097917F2D9570011D376 /* KGKeyboardChangeManager.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		834B091217F2B89D0011D376 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 834B08EA17F2B89D0011D376 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 834B08F117F2B89D0011D376;
+			remoteInfo = Hark;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		83254B3817F2E538000E9C54 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		83254B3A17F2E540000E9C54 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		83254B3C17F2E54D000E9C54 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		83254B3E17F2E558000E9C54 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		834B08F217F2B89D0011D376 /* Hark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hark.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		834B08F517F2B89D0011D376 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		834B08F717F2B89D0011D376 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		834B08F917F2B89D0011D376 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		834B08FD17F2B89D0011D376 /* Hark-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Hark-Info.plist"; sourceTree = "<group>"; };
+		834B08FF17F2B89D0011D376 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		834B090117F2B89D0011D376 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		834B090317F2B89D0011D376 /* Hark-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hark-Prefix.pch"; sourceTree = "<group>"; };
+		834B090417F2B89D0011D376 /* HRKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HRKAppDelegate.h; sourceTree = "<group>"; };
+		834B090517F2B89D0011D376 /* HRKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HRKAppDelegate.m; sourceTree = "<group>"; };
+		834B090717F2B89D0011D376 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		834B090D17F2B89D0011D376 /* HarkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HarkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		834B090E17F2B89D0011D376 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		834B091617F2B89D0011D376 /* HarkTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HarkTests-Info.plist"; sourceTree = "<group>"; };
+		834B091817F2B89D0011D376 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		834B091A17F2B89D0011D376 /* HarkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HarkTests.m; sourceTree = "<group>"; };
+		834B092417F2B8AD0011D376 /* HRKTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRKTextViewController.h; sourceTree = "<group>"; };
+		834B092517F2B8AD0011D376 /* HRKTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRKTextViewController.m; sourceTree = "<group>"; };
+		834B096617F2C3730011D376 /* UIAlertView+BBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIAlertView+BBlock.h"; path = "BBlock/UIAlertView+BBlock.h"; sourceTree = SOURCE_ROOT; };
+		834B096717F2C3730011D376 /* UIAlertView+BBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIAlertView+BBlock.m"; path = "BBlock/UIAlertView+BBlock.m"; sourceTree = SOURCE_ROOT; };
+		834B096917F2C4020011D376 /* BBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBlock.h; path = BBlock/BBlock.h; sourceTree = SOURCE_ROOT; };
+		834B096A17F2C4020011D376 /* BBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBlock.m; path = BBlock/BBlock.m; sourceTree = SOURCE_ROOT; };
+		834B096C17F2C4C10011D376 /* NSTimer+BBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSTimer+BBlock.h"; path = "BBlock/NSTimer+BBlock.h"; sourceTree = SOURCE_ROOT; };
+		834B096D17F2C4C10011D376 /* NSTimer+BBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSTimer+BBlock.m"; path = "BBlock/NSTimer+BBlock.m"; sourceTree = SOURCE_ROOT; };
+		834B097517F2D5DA0011D376 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Hex.h"; path = "UIColorCategories/UIColor+Hex.h"; sourceTree = SOURCE_ROOT; };
+		834B097617F2D5DA0011D376 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Hex.m"; path = "UIColorCategories/UIColor+Hex.m"; sourceTree = SOURCE_ROOT; };
+		834B097817F2D9570011D376 /* KGKeyboardChangeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KGKeyboardChangeManager.h; path = KGKeyboardChangeManager/KGKeyboardChangeManager.h; sourceTree = SOURCE_ROOT; };
+		834B097917F2D9570011D376 /* KGKeyboardChangeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KGKeyboardChangeManager.m; path = KGKeyboardChangeManager/KGKeyboardChangeManager.m; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		834B08EF17F2B89D0011D376 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83254B3F17F2E558000E9C54 /* SystemConfiguration.framework in Frameworks */,
+				83254B3D17F2E54D000E9C54 /* libsqlite3.dylib in Frameworks */,
+				83254B3B17F2E540000E9C54 /* libz.dylib in Frameworks */,
+				83254B3917F2E538000E9C54 /* AdSupport.framework in Frameworks */,
+				834B08F817F2B89D0011D376 /* CoreGraphics.framework in Frameworks */,
+				834B08FA17F2B89D0011D376 /* UIKit.framework in Frameworks */,
+				834B08F617F2B89D0011D376 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		834B090A17F2B89D0011D376 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				834B090F17F2B89D0011D376 /* XCTest.framework in Frameworks */,
+				834B091117F2B89D0011D376 /* UIKit.framework in Frameworks */,
+				834B091017F2B89D0011D376 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		834B08E917F2B89D0011D376 = {
+			isa = PBXGroup;
+			children = (
+				834B08FB17F2B89D0011D376 /* Hark */,
+				834B091417F2B89D0011D376 /* HarkTests */,
+				834B08F417F2B89D0011D376 /* Frameworks */,
+				834B08F317F2B89D0011D376 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		834B08F317F2B89D0011D376 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				834B08F217F2B89D0011D376 /* Hark.app */,
+				834B090D17F2B89D0011D376 /* HarkTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		834B08F417F2B89D0011D376 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				83254B3E17F2E558000E9C54 /* SystemConfiguration.framework */,
+				83254B3C17F2E54D000E9C54 /* libsqlite3.dylib */,
+				83254B3A17F2E540000E9C54 /* libz.dylib */,
+				83254B3817F2E538000E9C54 /* AdSupport.framework */,
+				834B08F517F2B89D0011D376 /* Foundation.framework */,
+				834B08F717F2B89D0011D376 /* CoreGraphics.framework */,
+				834B08F917F2B89D0011D376 /* UIKit.framework */,
+				834B090E17F2B89D0011D376 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		834B08FB17F2B89D0011D376 /* Hark */ = {
+			isa = PBXGroup;
+			children = (
+				834B090417F2B89D0011D376 /* HRKAppDelegate.h */,
+				834B090517F2B89D0011D376 /* HRKAppDelegate.m */,
+				834B092417F2B8AD0011D376 /* HRKTextViewController.h */,
+				834B092517F2B8AD0011D376 /* HRKTextViewController.m */,
+				834B096617F2C3730011D376 /* UIAlertView+BBlock.h */,
+				834B096717F2C3730011D376 /* UIAlertView+BBlock.m */,
+				834B096C17F2C4C10011D376 /* NSTimer+BBlock.h */,
+				834B096D17F2C4C10011D376 /* NSTimer+BBlock.m */,
+				834B096917F2C4020011D376 /* BBlock.h */,
+				834B096A17F2C4020011D376 /* BBlock.m */,
+				834B097517F2D5DA0011D376 /* UIColor+Hex.h */,
+				834B097617F2D5DA0011D376 /* UIColor+Hex.m */,
+				834B097817F2D9570011D376 /* KGKeyboardChangeManager.h */,
+				834B097917F2D9570011D376 /* KGKeyboardChangeManager.m */,
+				834B090717F2B89D0011D376 /* Images.xcassets */,
+				834B08FC17F2B89D0011D376 /* Supporting Files */,
+			);
+			path = Hark;
+			sourceTree = "<group>";
+		};
+		834B08FC17F2B89D0011D376 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				834B08FD17F2B89D0011D376 /* Hark-Info.plist */,
+				834B08FE17F2B89D0011D376 /* InfoPlist.strings */,
+				834B090117F2B89D0011D376 /* main.m */,
+				834B090317F2B89D0011D376 /* Hark-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		834B091417F2B89D0011D376 /* HarkTests */ = {
+			isa = PBXGroup;
+			children = (
+				834B091A17F2B89D0011D376 /* HarkTests.m */,
+				834B091517F2B89D0011D376 /* Supporting Files */,
+			);
+			path = HarkTests;
+			sourceTree = "<group>";
+		};
+		834B091517F2B89D0011D376 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				834B091617F2B89D0011D376 /* HarkTests-Info.plist */,
+				834B091717F2B89D0011D376 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		834B08F117F2B89D0011D376 /* Hark */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 834B091E17F2B89D0011D376 /* Build configuration list for PBXNativeTarget "Hark" */;
+			buildPhases = (
+				834B08EE17F2B89D0011D376 /* Sources */,
+				834B08EF17F2B89D0011D376 /* Frameworks */,
+				834B08F017F2B89D0011D376 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Hark;
+			productName = Hark;
+			productReference = 834B08F217F2B89D0011D376 /* Hark.app */;
+			productType = "com.apple.product-type.application";
+		};
+		834B090C17F2B89D0011D376 /* HarkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 834B092117F2B89D0011D376 /* Build configuration list for PBXNativeTarget "HarkTests" */;
+			buildPhases = (
+				834B090917F2B89D0011D376 /* Sources */,
+				834B090A17F2B89D0011D376 /* Frameworks */,
+				834B090B17F2B89D0011D376 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				834B091317F2B89D0011D376 /* PBXTargetDependency */,
+			);
+			name = HarkTests;
+			productName = HarkTests;
+			productReference = 834B090D17F2B89D0011D376 /* HarkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		834B08EA17F2B89D0011D376 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = HRK;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "David Keegan";
+				TargetAttributes = {
+					834B08F117F2B89D0011D376 = {
+						DevelopmentTeam = T3DCX7XWL8;
+					};
+					834B090C17F2B89D0011D376 = {
+						TestTargetID = 834B08F117F2B89D0011D376;
+					};
+				};
+			};
+			buildConfigurationList = 834B08ED17F2B89D0011D376 /* Build configuration list for PBXProject "Hark" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 834B08E917F2B89D0011D376;
+			productRefGroup = 834B08F317F2B89D0011D376 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				834B08F117F2B89D0011D376 /* Hark */,
+				834B090C17F2B89D0011D376 /* HarkTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		834B08F017F2B89D0011D376 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				834B090017F2B89D0011D376 /* InfoPlist.strings in Resources */,
+				834B090817F2B89D0011D376 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		834B090B17F2B89D0011D376 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				834B091917F2B89D0011D376 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		834B08EE17F2B89D0011D376 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				834B096817F2C3730011D376 /* UIAlertView+BBlock.m in Sources */,
+				834B096B17F2C4020011D376 /* BBlock.m in Sources */,
+				834B092617F2B8AD0011D376 /* HRKTextViewController.m in Sources */,
+				834B096E17F2C4C10011D376 /* NSTimer+BBlock.m in Sources */,
+				834B090617F2B89D0011D376 /* HRKAppDelegate.m in Sources */,
+				834B097717F2D5DA0011D376 /* UIColor+Hex.m in Sources */,
+				834B090217F2B89D0011D376 /* main.m in Sources */,
+				834B097A17F2D9570011D376 /* KGKeyboardChangeManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		834B090917F2B89D0011D376 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				834B091B17F2B89D0011D376 /* HarkTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		834B091317F2B89D0011D376 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 834B08F117F2B89D0011D376 /* Hark */;
+			targetProxy = 834B091217F2B89D0011D376 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		834B08FE17F2B89D0011D376 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				834B08FF17F2B89D0011D376 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		834B091717F2B89D0011D376 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				834B091817F2B89D0011D376 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		834B091C17F2B89D0011D376 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		834B091D17F2B89D0011D376 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		834B091F17F2B89D0011D376 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Hark/Hark-Prefix.pch";
+				INFOPLIST_FILE = "Hark/Hark-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/keegan/Development/Hark/Localytics,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		834B092017F2B89D0011D376 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Hark/Hark-Prefix.pch";
+				INFOPLIST_FILE = "Hark/Hark-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/keegan/Development/Hark/Localytics,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		834B092217F2B89D0011D376 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Hark.app/Hark";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Hark/Hark-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "HarkTests/HarkTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		834B092317F2B89D0011D376 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Hark.app/Hark";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Hark/Hark-Prefix.pch";
+				INFOPLIST_FILE = "HarkTests/HarkTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		834B08ED17F2B89D0011D376 /* Build configuration list for PBXProject "Hark" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				834B091C17F2B89D0011D376 /* Debug */,
+				834B091D17F2B89D0011D376 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		834B091E17F2B89D0011D376 /* Build configuration list for PBXNativeTarget "Hark" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				834B091F17F2B89D0011D376 /* Debug */,
+				834B092017F2B89D0011D376 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		834B092117F2B89D0011D376 /* Build configuration list for PBXNativeTarget "HarkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				834B092217F2B89D0011D376 /* Debug */,
+				834B092317F2B89D0011D376 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 834B08EA17F2B89D0011D376 /* Project object */;
+}

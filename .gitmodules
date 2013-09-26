@@ -1,0 +1,9 @@
+[submodule "BBlock"]
+	path = BBlock
+	url = https://github.com/kgn/BBlock.git
+[submodule "UIColorCategories"]
+	path = UIColorCategories
+	url = https://github.com/kgn/UIColorCategories.git
+[submodule "KGKeyboardChangeManager"]
+	path = KGKeyboardChangeManager
+	url = https://github.com/kgn/KGKeyboardChangeManager.git

@@ -10,6 +10,7 @@ This app will be available on the App Store for free and I'm releasing the sourc
 
 Here are some features you might want to borrow for you're apps:
 - `UIMenuItem` to read the currently selected text
+- Language voice detection
 - Read the entire document or the selected text
 - Detect new text in the clipboard
 - Starting and stopping the reading. For simplicity I didn't add pausing but you might want to.
@@ -23,5 +24,7 @@ Here are some features you might want to borrow for you're apps:
 # Credits
 
 Be sure to [follow me](https://twitter.com/iamkgn) on twitter!
+
+Thanks to [Eric Wolfe](https://github.com/ericrwolfe) for his awesome language voice detection pull request!
 
 Special thanks to [Mattt Thompson](https://twitter.com/mattt) for bringing `AVSpeechSynthesizer` to my attention, [Drew Wilson](https://twitter.com/drewwilson) for the [Execute](http://executebook.com) book and mentality, and [Sam Soffes](https://twitter.com/soffes) for convincing me to open source this project!

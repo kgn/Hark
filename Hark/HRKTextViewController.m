@@ -186,7 +186,7 @@
         
         // Fall back to searching the availableLanguages array for languages starting with
         // the current language code
-        NSString *langCode = [language substringToIndex:2];
+        NSString *langCode = [[language componentsSeparatedByString:@"-"] firstObject];
         for (NSString *lang in availableLanguages) {
             if ([lang hasPrefix:langCode]) {
                 return lang;

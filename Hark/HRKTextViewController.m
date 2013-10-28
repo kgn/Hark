@@ -13,6 +13,7 @@
 #import "NSTimer+BBlock.h"
 #import "BBlock.h"
 #import "KGKeyboardChangeManager.h"
+#import "UIColor+Hex.h"
 
 @interface HRKTextViewController()
 <UITextViewDelegate, AVSpeechSynthesizerDelegate>
@@ -35,7 +36,13 @@
 
     self.title = NSLocalizedString(@"Hark", @"Hark Title");
     self.view.backgroundColor = [UIColor whiteColor];
-
+    [self.view setTintColor:[UIColor colorWithHex:0xff3b30]];
+    
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"app.utterance.rate"]) {
+        [[NSUserDefaults standardUserDefaults] setFloat:0.25 forKey:@"app.utterance.rate"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
     self.speechSynthesizer = [AVSpeechSynthesizer new];
     self.speechSynthesizer.delegate = self;
 
@@ -73,10 +80,32 @@
             CGRect frame = wself.view.bounds;
             frame.size.height = CGRectGetMinY(keyboardRect);
             wself.textView.frame = frame;
+            //wself.textView.contentInset = UIEdgeInsetsMake(64, 0, keyboardRect.size.height, 0);
+            //wself.textView.scrollIndicatorInsets = UIEdgeInsetsMake(64, 0, keyboardRect.size.height, 0);
         }];
     }];
 
+    UIToolbar *accessoryBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    [accessoryBar setTintColor:self.view.tintColor];
+    [accessoryBar setBarStyle:UIBarStyleDefault];
+    [accessoryBar setTranslucent:YES];
+    
+    UISlider *rateSlider = [[UISlider alloc] initWithFrame:CGRectMake(0, 0, 250, 23)];
+    [rateSlider setMinimumValue:AVSpeechUtteranceMinimumSpeechRate];
+    [rateSlider setMaximumValue:AVSpeechUtteranceMaximumSpeechRate];
+    [rateSlider setValue:[[NSUserDefaults standardUserDefaults] floatForKey:@"app.utterance.rate"] animated:YES];
+    [rateSlider addTarget:self action:@selector(rateAdjusted:) forControlEvents:UIControlEventValueChanged];
+    UIBarButtonItem *rateItem = [[UIBarButtonItem alloc] initWithCustomView:rateSlider];
+    [accessoryBar setItems:@[rateItem]];
+    
+    [self.textView setInputAccessoryView:accessoryBar];
     [self.textView becomeFirstResponder];
+}
+
+- (void)rateAdjusted:(UISlider *)slider {
+    NSLog(@"%f", slider.value);
+    [[NSUserDefaults standardUserDefaults] setFloat:slider.value forKey:@"app.utterance.rate"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)setSpeaking:(BOOL)speaking{
@@ -153,6 +182,7 @@
     
     AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:text];
     utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:[self voiceLanguageForText:text]];
+    utterance.rate = [[NSUserDefaults standardUserDefaults] floatForKey:@"app.utterance.rate"];
     [self.speechSynthesizer speakUtterance:utterance];
 }
 

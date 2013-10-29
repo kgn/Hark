@@ -18,6 +18,7 @@
 @interface HRKTextViewController()
 <UITextViewDelegate, AVSpeechSynthesizerDelegate>
 @property (weak, nonatomic, readwrite) UITextView *textView;
+@property (weak, nonatomic, readwrite) UILabel *rateNumber;
 @property (strong, nonatomic) AVSpeechSynthesizer *speechSynthesizer;
 @property (strong, nonatomic) NSTimer *timer;
 @property (strong, nonatomic) id keyboardChangeIdentifier;
@@ -90,13 +91,21 @@
     [accessoryBar setBarStyle:UIBarStyleDefault];
     [accessoryBar setTranslucent:YES];
     
-    UISlider *rateSlider = [[UISlider alloc] initWithFrame:CGRectMake(0, 0, 250, 23)];
+    UISlider *rateSlider = [[UISlider alloc] initWithFrame:CGRectMake(0, 0, 230, 23)];
     [rateSlider setMinimumValue:AVSpeechUtteranceMinimumSpeechRate];
     [rateSlider setMaximumValue:AVSpeechUtteranceMaximumSpeechRate];
     [rateSlider setValue:[[NSUserDefaults standardUserDefaults] floatForKey:@"app.utterance.rate"] animated:YES];
     [rateSlider addTarget:self action:@selector(rateAdjusted:) forControlEvents:UIControlEventValueChanged];
     UIBarButtonItem *rateItem = [[UIBarButtonItem alloc] initWithCustomView:rateSlider];
-    [accessoryBar setItems:@[rateItem]];
+    
+    UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UILabel *percentage = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 23)];
+    [percentage setTextAlignment:NSTextAlignmentRight];
+    [percentage setText:[NSString stringWithFormat:@"%.0f%%", [[NSUserDefaults standardUserDefaults] floatForKey:@"app.utterance.rate"] * 100 ]];
+    self.rateNumber = percentage;
+    UIBarButtonItem *ratePercent = [[UIBarButtonItem alloc] initWithCustomView:self.rateNumber];
+    
+    [accessoryBar setItems:@[rateItem, flexibleSpace, ratePercent]];
     
     [self.textView setInputAccessoryView:accessoryBar];
     [self.textView becomeFirstResponder];
@@ -104,6 +113,9 @@
 
 - (void)rateAdjusted:(UISlider *)slider {
     NSLog(@"%f", slider.value);
+    
+    self.rateNumber.text = [NSString stringWithFormat:@"%.0f%%", slider.value * 100];
+    
     [[NSUserDefaults standardUserDefaults] setFloat:slider.value forKey:@"app.utterance.rate"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }

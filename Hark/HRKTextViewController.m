@@ -129,7 +129,7 @@
     [[[UIAlertView alloc]
      initWithTitle:NSLocalizedString(@"Replace from Clipboard?", @"Replace with clipboard title")
      message:NSLocalizedString(@"There is new text in your clipboard, would you like to use it?", @"Replace with clipboard message")
-     cancelButtonTitle:NSLocalizedString(@"NO", @"NO button") otherButtonTitle:NSLocalizedString(@"Use Text", @"Use text button")
+     cancelButtonTitle:NSLocalizedString(@"No", @"No button") otherButtonTitle:NSLocalizedString(@"Use Text", @"Use text button")
      completionBlock:^(NSInteger buttonIndex, UIAlertView *alertView){
          if(buttonIndex == alertView.cancelButtonIndex){
              [[NSUserDefaults standardUserDefaults] setObject:pasteboard.string forKey:@"app.askedText"];

@@ -21,6 +21,7 @@
 @property (strong, nonatomic) NSTimer *timer;
 @property (strong, nonatomic) id keyboardChangeIdentifier;
 @property (nonatomic, getter=isSpeaking) BOOL speaking;
+@property (nonatomic) NSUInteger startLocation;
 @end
 
 @implementation HRKTextViewController
@@ -146,8 +147,10 @@
         return;
     }
 
+    self.startLocation = 0;
     NSString *text = self.textView.text;
     if(self.textView.selectedRange.length > 0){
+        self.startLocation = self.textView.selectedRange.location;
         text = [text substringWithRange:self.textView.selectedRange];
     }
     
@@ -224,7 +227,6 @@
 
 - (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didCancelSpeechUtterance:(AVSpeechUtterance *)utterance{
     self.speaking = NO;
-    
     [self removeAttributes];
 }
 
@@ -234,7 +236,6 @@
 
 - (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didFinishSpeechUtterance:(AVSpeechUtterance *)utterance{
     self.speaking = NO;
-    
     [self removeAttributes];
 }
 
@@ -246,24 +247,23 @@
     self.speaking = YES;
 }
 
-- (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer willSpeakRangeOfSpeechString:(NSRange)characterRange utterance:(AVSpeechUtterance *)utterance {
-    UIFont *boldFont = [UIFont boldSystemFontOfSize:17.0];
-    UIFont *retainSize = [UIFont systemFontOfSize:17.0];
-    
+- (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer willSpeakRangeOfSpeechString:(NSRange)characterRange utterance:(AVSpeechUtterance *)utterance{
+    NSRange textRange = NSMakeRange(0, self.textView.text.length);
+    NSRange readRange = NSMakeRange(self.startLocation, characterRange.location+characterRange.length);
     NSMutableAttributedString *spokenText = [[NSMutableAttributedString alloc] initWithString:self.textView.text];
-    
-    [spokenText addAttribute:NSFontAttributeName value:retainSize range:NSMakeRange(0, self.textView.text.length)]; // Keep font size of non-bold text
-    [spokenText addAttribute:NSFontAttributeName value:boldFont range:characterRange]; // Make spoken text bold
-    
+    [spokenText addAttribute:NSFontAttributeName value:[UIFont preferredFontForTextStyle:UIFontTextStyleBody] range:textRange];
+    [spokenText addAttribute:NSBackgroundColorAttributeName value:[UIColor clearColor] range:textRange];
+    [spokenText addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:readRange];
+    [spokenText addAttribute:NSBackgroundColorAttributeName value:self.view.tintColor range:readRange];
     self.textView.attributedText = spokenText;
 }
 
-- (void)removeAttributes {
+- (void)removeAttributes{
+    NSRange textRange = NSMakeRange(0, self.textView.text.length);
     NSMutableAttributedString *textToReset = [[NSMutableAttributedString alloc] initWithString:self.textView.text];
-    
-    UIFont *retainSize = [UIFont systemFontOfSize:17.0];
-    [textToReset addAttribute:NSFontAttributeName value:retainSize range:NSMakeRange(0, self.textView.text.length)];
-    
+    [textToReset addAttribute:NSFontAttributeName value:[UIFont preferredFontForTextStyle:UIFontTextStyleBody] range:textRange];
+    [textToReset addAttribute:NSBackgroundColorAttributeName value:[UIColor clearColor] range:textRange];
+    [textToReset addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:textRange];
     self.textView.attributedText = textToReset;
 }
 

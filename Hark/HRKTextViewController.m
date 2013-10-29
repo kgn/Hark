@@ -224,6 +224,8 @@
 
 - (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didCancelSpeechUtterance:(AVSpeechUtterance *)utterance{
     self.speaking = NO;
+    
+    [self removeAttributes];
 }
 
 - (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didContinueSpeechUtterance:(AVSpeechUtterance *)utterance{
@@ -232,6 +234,8 @@
 
 - (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didFinishSpeechUtterance:(AVSpeechUtterance *)utterance{
     self.speaking = NO;
+    
+    [self removeAttributes];
 }
 
 - (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didPauseSpeechUtterance:(AVSpeechUtterance *)utterance{
@@ -240,6 +244,27 @@
 
 - (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didStartSpeechUtterance:(AVSpeechUtterance *)utterance{
     self.speaking = YES;
+}
+
+- (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer willSpeakRangeOfSpeechString:(NSRange)characterRange utterance:(AVSpeechUtterance *)utterance {
+    UIFont *boldFont = [UIFont boldSystemFontOfSize:17.0];
+    UIFont *retainSize = [UIFont systemFontOfSize:17.0];
+    
+    NSMutableAttributedString *spokenText = [[NSMutableAttributedString alloc] initWithString:self.textView.text];
+    
+    [spokenText addAttribute:NSFontAttributeName value:retainSize range:NSMakeRange(0, self.textView.text.length)]; // Keep font size of non-bold text
+    [spokenText addAttribute:NSFontAttributeName value:boldFont range:characterRange]; // Make spoken text bold
+    
+    self.textView.attributedText = spokenText;
+}
+
+- (void)removeAttributes {
+    NSMutableAttributedString *textToReset = [[NSMutableAttributedString alloc] initWithString:self.textView.text];
+    
+    UIFont *retainSize = [UIFont systemFontOfSize:17.0];
+    [textToReset addAttribute:NSFontAttributeName value:retainSize range:NSMakeRange(0, self.textView.text.length)];
+    
+    self.textView.attributedText = textToReset;
 }
 
 @end

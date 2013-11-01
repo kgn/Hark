@@ -157,34 +157,41 @@
 }
 
 - (NSString *)voiceLanguageForText:(NSString *)text{
-    CFRange range = CFRangeMake(0, MIN(400, text.length));
-    NSString *currentLanguage = [AVSpeechSynthesisVoice currentLanguageCode];
-    NSString *language = (NSString *)CFBridgingRelease(CFStringTokenizerCopyBestStringLanguage((CFStringRef)text, range));
-    if(language && ![currentLanguage hasPrefix:language]){
-        NSArray *availableLanguages = [[AVSpeechSynthesisVoice speechVoices] valueForKeyPath:@"language"];
-        if([availableLanguages containsObject:language]){
-            return language;
-        }
-
-        // TODO: also support Cantonese (zh-HK)
-        // Language code translations for simplified and traditional Chinese
-        if([language isEqualToString:@"zh-Hans"]){
-            return @"zh-CN";
-        }
-        if([language isEqualToString:@"zh-Hant"]){
-            return @"zh-TW";
-        }
-
-        // Fall back to searching for languages starting with the current language code
-        NSString *languageCode = [[language componentsSeparatedByString:@"-"] firstObject];
-        for(NSString *language in availableLanguages){
-            if([language hasPrefix:languageCode]){
-                NSLog(@"Falling back on: %@", language);
+    NSString *currentLanguage;
+    
+    if ([[[NSUserDefaults standardUserDefaults] stringForKey:@"app.language"] isEqualToString:@"hark.language.detect"]) {
+        CFRange range = CFRangeMake(0, MIN(400, text.length));
+        currentLanguage = [AVSpeechSynthesisVoice currentLanguageCode];
+        NSString *language = (NSString *)CFBridgingRelease(CFStringTokenizerCopyBestStringLanguage((CFStringRef)text, range));
+        if(language && ![currentLanguage hasPrefix:language]){
+            NSArray *availableLanguages = [[AVSpeechSynthesisVoice speechVoices] valueForKeyPath:@"language"];
+            if([availableLanguages containsObject:language]){
                 return language;
+            }
+            
+            // TODO: also support Cantonese (zh-HK)
+            // Language code translations for simplified and traditional Chinese
+            if([language isEqualToString:@"zh-Hans"]){
+                return @"zh-CN";
+            }
+            if([language isEqualToString:@"zh-Hant"]){
+                return @"zh-TW";
+            }
+            
+            // Fall back to searching for languages starting with the current language code
+            NSString *languageCode = [[language componentsSeparatedByString:@"-"] firstObject];
+            for(NSString *language in availableLanguages){
+                if([language hasPrefix:languageCode]){
+                    NSLog(@"Falling back on: %@", language);
+                    return language;
+                }
             }
         }
     }
-
+    else {
+        currentLanguage = [[NSUserDefaults standardUserDefaults] stringForKey:@"app.language"];
+    }
+    
     return currentLanguage;
 }
 

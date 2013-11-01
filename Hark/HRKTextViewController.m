@@ -39,6 +39,8 @@
 
     self.speechSynthesizer = [AVSpeechSynthesizer new];
     self.speechSynthesizer.delegate = self;
+    
+    [[NSUserDefaults standardUserDefaults] setFloat:0.45 forKey:@"app.utterance.rate"];
 
     NSError *error = nil;
     if(![[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&error]){

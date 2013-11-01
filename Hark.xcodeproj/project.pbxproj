@@ -29,6 +29,8 @@
 		834B096E17F2C4C10011D376 /* NSTimer+BBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 834B096D17F2C4C10011D376 /* NSTimer+BBlock.m */; };
 		834B097717F2D5DA0011D376 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 834B097617F2D5DA0011D376 /* UIColor+Hex.m */; };
 		834B097A17F2D9570011D376 /* KGKeyboardChangeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 834B097917F2D9570011D376 /* KGKeyboardChangeManager.m */; };
+		F12386331824291A008003D4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F12386321824291A008003D4 /* Settings.bundle */; };
+		F160631A18242CF300B3F3F6 /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = F160631918242CF300B3F3F6 /* Property List.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		834B097617F2D5DA0011D376 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Hex.m"; path = "UIColorCategories/UIColor+Hex.m"; sourceTree = SOURCE_ROOT; };
 		834B097817F2D9570011D376 /* KGKeyboardChangeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KGKeyboardChangeManager.h; path = KGKeyboardChangeManager/KGKeyboardChangeManager.h; sourceTree = SOURCE_ROOT; };
 		834B097917F2D9570011D376 /* KGKeyboardChangeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KGKeyboardChangeManager.m; path = KGKeyboardChangeManager/KGKeyboardChangeManager.m; sourceTree = SOURCE_ROOT; };
+		F12386321824291A008003D4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		F160631918242CF300B3F3F6 /* Property List.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Property List.plist"; path = "../Desktop/Property List.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 		834B08E917F2B89D0011D376 = {
 			isa = PBXGroup;
 			children = (
+				F160631918242CF300B3F3F6 /* Property List.plist */,
 				834B08FB17F2B89D0011D376 /* Hark */,
 				834B091417F2B89D0011D376 /* HarkTests */,
 				834B08F417F2B89D0011D376 /* Frameworks */,
@@ -168,6 +173,7 @@
 				834B08FE17F2B89D0011D376 /* InfoPlist.strings */,
 				834B090117F2B89D0011D376 /* main.m */,
 				834B090317F2B89D0011D376 /* Hark-Prefix.pch */,
+				F12386321824291A008003D4 /* Settings.bundle */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -267,6 +273,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				834B090017F2B89D0011D376 /* InfoPlist.strings in Resources */,
+				F12386331824291A008003D4 /* Settings.bundle in Resources */,
+				F160631A18242CF300B3F3F6 /* Property List.plist in Resources */,
 				834B090817F2B89D0011D376 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

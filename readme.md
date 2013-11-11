@@ -8,7 +8,7 @@ Check out [this video](https://vimeo.com/75465205) showing how the app works and
 
 This app will be available on the App Store for free and I'm releasing the source as an example for other developers to encourage you to put text to speech in your apps!
 
-Here are some features you might want to borrow for you're apps:
+Here are some features you might want to borrow for your apps:
 - `UIMenuItem` to read the currently selected text
 - Language voice detection
 - Read the entire document or the selected text

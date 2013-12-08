@@ -13,6 +13,8 @@
 #import "NSTimer+BBlock.h"
 #import "BBlock.h"
 #import "KGKeyboardChangeManager.h"
+#import "UIActionSheet+BBlock.h"
+#import "InAppSettings.h"
 
 @interface HRKTextViewController()
 <UITextViewDelegate, AVSpeechSynthesizerDelegate>
@@ -146,7 +148,7 @@
     if(self.speechSynthesizer.isSpeaking){
         return;
     }
-
+    
     self.startLocation = 0;
     NSString *text = self.textView.text;
     if(self.textView.selectedRange.length > 0){
@@ -156,6 +158,9 @@
     
     AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:text];
     utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:[self voiceLanguageForText:text]];
+    utterance.rate = [[NSUserDefaults standardUserDefaults] floatForKey:@"utterance.rate"];
+    utterance.volume = [[NSUserDefaults standardUserDefaults] floatForKey:@"utterance.volume"];
+    utterance.pitchMultiplier = [[NSUserDefaults standardUserDefaults] floatForKey:@"utterance.pitchMultiplier"];
     [self.speechSynthesizer speakUtterance:utterance];
 }
 
@@ -194,9 +199,21 @@
 - (void)actionButtonAction:(id)sender{
     [[NSUserDefaults standardUserDefaults] setObject:self.textView.text forKey:@"app.lastText"];
 
-    UIActivityViewController *activityViewController =
-    [[UIActivityViewController alloc] initWithActivityItems:@[self.textView.text] applicationActivities:nil];
-    [self presentViewController:activityViewController animated:YES completion:nil];
+    BBlockWeakSelf wself = self;
+    [[[UIActionSheet alloc]
+      initWithTitle:nil cancelButtonTitle:NSLocalizedString(@"Cancel", @"Cancel button")
+      destructiveButtonTitle:NSLocalizedString(@"Share", @"Share button")
+      otherButtonTitle:NSLocalizedString(@"Settings", @"Settings button")
+      completionBlock:^(NSInteger buttonIndex, UIActionSheet *actionSheet){
+          if(buttonIndex == actionSheet.destructiveButtonIndex){
+              UIActivityViewController *activityViewController =
+              [[UIActivityViewController alloc] initWithActivityItems:@[wself.textView.text] applicationActivities:nil];
+              [wself presentViewController:activityViewController animated:YES completion:nil];
+          }else if(buttonIndex != actionSheet.cancelButtonIndex){
+              InAppSettingsModalViewController *settingViewController = [InAppSettingsModalViewController new];
+              [wself presentViewController:settingViewController animated:YES completion:nil];
+          }
+      }] showInView:self.view];
 }
 
 - (void)readButtonAction:(id)sender{

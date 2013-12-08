@@ -9,12 +9,19 @@
 #import "HRKAppDelegate.h"
 #import "HRKTextViewController.h"
 #import "UIColor+Hex.h"
+#import "InAppSettings.h"
 
 @interface HRKAppDelegate()
 @property (weak, nonatomic) HRKTextViewController *textViewController;
 @end
 
 @implementation HRKAppDelegate
+
++ (void)initialize{
+    if([self class] == [HRKAppDelegate class]){
+        [InAppSettings registerDefaults];
+    }
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

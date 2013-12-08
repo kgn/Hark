@@ -9,6 +9,19 @@
 /* Begin PBXBuildFile section */
 		831CD19A18541480006FA03B /* UIAlertView+BBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CD19918541480006FA03B /* UIAlertView+BBlock.m */; };
 		831CD19D1854148A006FA03B /* NSTimer+BBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CD19C1854148A006FA03B /* NSTimer+BBlock.m */; };
+		831CD19F1854162C006FA03B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 831CD19E1854162C006FA03B /* Settings.bundle */; };
+		831CD1B81854168B006FA03B /* InAppSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CD1A21854168B006FA03B /* InAppSettings.m */; };
+		831CD1B91854168B006FA03B /* InAppSettingsPSChildPaneSpecifierCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CD1A51854168B006FA03B /* InAppSettingsPSChildPaneSpecifierCell.m */; };
+		831CD1BA1854168B006FA03B /* InAppSettingsPSMultiValueSpecifierCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CD1A71854168B006FA03B /* InAppSettingsPSMultiValueSpecifierCell.m */; };
+		831CD1BB1854168B006FA03B /* InAppSettingsPSMultiValueSpecifierTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CD1A91854168B006FA03B /* InAppSettingsPSMultiValueSpecifierTable.m */; };
+		831CD1BC1854168B006FA03B /* InAppSettingsPSSliderSpecifierCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CD1AB1854168B006FA03B /* InAppSettingsPSSliderSpecifierCell.m */; };
+		831CD1BD1854168B006FA03B /* InAppSettingsPSTextFieldSpecifierCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CD1AD1854168B006FA03B /* InAppSettingsPSTextFieldSpecifierCell.m */; };
+		831CD1BE1854168B006FA03B /* InAppSettingsPSTitleValueSpecifierCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CD1AF1854168B006FA03B /* InAppSettingsPSTitleValueSpecifierCell.m */; };
+		831CD1BF1854168B006FA03B /* InAppSettingsPSToggleSwitchSpecifierCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CD1B11854168B006FA03B /* InAppSettingsPSToggleSwitchSpecifierCell.m */; };
+		831CD1C01854168B006FA03B /* InAppSettingsReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CD1B31854168B006FA03B /* InAppSettingsReader.m */; };
+		831CD1C11854168B006FA03B /* InAppSettingsSpecifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CD1B51854168B006FA03B /* InAppSettingsSpecifier.m */; };
+		831CD1C21854168B006FA03B /* InAppSettingsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CD1B71854168B006FA03B /* InAppSettingsTableCell.m */; };
+		831CD1C518541A9F006FA03B /* UIActionSheet+BBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CD1C418541A9F006FA03B /* UIActionSheet+BBlock.m */; };
 		83254B3917F2E538000E9C54 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83254B3817F2E538000E9C54 /* AdSupport.framework */; };
 		83254B3B17F2E540000E9C54 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 83254B3A17F2E540000E9C54 /* libz.dylib */; };
 		83254B3D17F2E54D000E9C54 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 83254B3C17F2E54D000E9C54 /* libsqlite3.dylib */; };
@@ -45,6 +58,32 @@
 		831CD19918541480006FA03B /* UIAlertView+BBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIAlertView+BBlock.m"; path = "BBlock/Categories/UIKit/UIAlertView+BBlock.m"; sourceTree = SOURCE_ROOT; };
 		831CD19B1854148A006FA03B /* NSTimer+BBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSTimer+BBlock.h"; path = "BBlock/Categories/Foundation/NSTimer+BBlock.h"; sourceTree = SOURCE_ROOT; };
 		831CD19C1854148A006FA03B /* NSTimer+BBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSTimer+BBlock.m"; path = "BBlock/Categories/Foundation/NSTimer+BBlock.m"; sourceTree = SOURCE_ROOT; };
+		831CD19E1854162C006FA03B /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		831CD1A11854168B006FA03B /* InAppSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppSettings.h; sourceTree = "<group>"; };
+		831CD1A21854168B006FA03B /* InAppSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppSettings.m; sourceTree = "<group>"; };
+		831CD1A31854168B006FA03B /* InAppSettingsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppSettingsConstants.h; sourceTree = "<group>"; };
+		831CD1A41854168B006FA03B /* InAppSettingsPSChildPaneSpecifierCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppSettingsPSChildPaneSpecifierCell.h; sourceTree = "<group>"; };
+		831CD1A51854168B006FA03B /* InAppSettingsPSChildPaneSpecifierCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppSettingsPSChildPaneSpecifierCell.m; sourceTree = "<group>"; };
+		831CD1A61854168B006FA03B /* InAppSettingsPSMultiValueSpecifierCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppSettingsPSMultiValueSpecifierCell.h; sourceTree = "<group>"; };
+		831CD1A71854168B006FA03B /* InAppSettingsPSMultiValueSpecifierCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppSettingsPSMultiValueSpecifierCell.m; sourceTree = "<group>"; };
+		831CD1A81854168B006FA03B /* InAppSettingsPSMultiValueSpecifierTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppSettingsPSMultiValueSpecifierTable.h; sourceTree = "<group>"; };
+		831CD1A91854168B006FA03B /* InAppSettingsPSMultiValueSpecifierTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppSettingsPSMultiValueSpecifierTable.m; sourceTree = "<group>"; };
+		831CD1AA1854168B006FA03B /* InAppSettingsPSSliderSpecifierCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppSettingsPSSliderSpecifierCell.h; sourceTree = "<group>"; };
+		831CD1AB1854168B006FA03B /* InAppSettingsPSSliderSpecifierCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppSettingsPSSliderSpecifierCell.m; sourceTree = "<group>"; };
+		831CD1AC1854168B006FA03B /* InAppSettingsPSTextFieldSpecifierCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppSettingsPSTextFieldSpecifierCell.h; sourceTree = "<group>"; };
+		831CD1AD1854168B006FA03B /* InAppSettingsPSTextFieldSpecifierCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppSettingsPSTextFieldSpecifierCell.m; sourceTree = "<group>"; };
+		831CD1AE1854168B006FA03B /* InAppSettingsPSTitleValueSpecifierCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppSettingsPSTitleValueSpecifierCell.h; sourceTree = "<group>"; };
+		831CD1AF1854168B006FA03B /* InAppSettingsPSTitleValueSpecifierCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppSettingsPSTitleValueSpecifierCell.m; sourceTree = "<group>"; };
+		831CD1B01854168B006FA03B /* InAppSettingsPSToggleSwitchSpecifierCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppSettingsPSToggleSwitchSpecifierCell.h; sourceTree = "<group>"; };
+		831CD1B11854168B006FA03B /* InAppSettingsPSToggleSwitchSpecifierCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppSettingsPSToggleSwitchSpecifierCell.m; sourceTree = "<group>"; };
+		831CD1B21854168B006FA03B /* InAppSettingsReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppSettingsReader.h; sourceTree = "<group>"; };
+		831CD1B31854168B006FA03B /* InAppSettingsReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppSettingsReader.m; sourceTree = "<group>"; };
+		831CD1B41854168B006FA03B /* InAppSettingsSpecifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppSettingsSpecifier.h; sourceTree = "<group>"; };
+		831CD1B51854168B006FA03B /* InAppSettingsSpecifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppSettingsSpecifier.m; sourceTree = "<group>"; };
+		831CD1B61854168B006FA03B /* InAppSettingsTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppSettingsTableCell.h; sourceTree = "<group>"; };
+		831CD1B71854168B006FA03B /* InAppSettingsTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppSettingsTableCell.m; sourceTree = "<group>"; };
+		831CD1C318541A9F006FA03B /* UIActionSheet+BBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIActionSheet+BBlock.h"; path = "BBlock/Categories/UIKit/UIActionSheet+BBlock.h"; sourceTree = SOURCE_ROOT; };
+		831CD1C418541A9F006FA03B /* UIActionSheet+BBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIActionSheet+BBlock.m"; path = "BBlock/Categories/UIKit/UIActionSheet+BBlock.m"; sourceTree = SOURCE_ROOT; };
 		83254B3817F2E538000E9C54 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		83254B3A17F2E540000E9C54 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		83254B3C17F2E54D000E9C54 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -102,6 +141,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		831CD1A01854168B006FA03B /* InAppSettings */ = {
+			isa = PBXGroup;
+			children = (
+				831CD1A11854168B006FA03B /* InAppSettings.h */,
+				831CD1A21854168B006FA03B /* InAppSettings.m */,
+				831CD1A31854168B006FA03B /* InAppSettingsConstants.h */,
+				831CD1A41854168B006FA03B /* InAppSettingsPSChildPaneSpecifierCell.h */,
+				831CD1A51854168B006FA03B /* InAppSettingsPSChildPaneSpecifierCell.m */,
+				831CD1A61854168B006FA03B /* InAppSettingsPSMultiValueSpecifierCell.h */,
+				831CD1A71854168B006FA03B /* InAppSettingsPSMultiValueSpecifierCell.m */,
+				831CD1A81854168B006FA03B /* InAppSettingsPSMultiValueSpecifierTable.h */,
+				831CD1A91854168B006FA03B /* InAppSettingsPSMultiValueSpecifierTable.m */,
+				831CD1AA1854168B006FA03B /* InAppSettingsPSSliderSpecifierCell.h */,
+				831CD1AB1854168B006FA03B /* InAppSettingsPSSliderSpecifierCell.m */,
+				831CD1AC1854168B006FA03B /* InAppSettingsPSTextFieldSpecifierCell.h */,
+				831CD1AD1854168B006FA03B /* InAppSettingsPSTextFieldSpecifierCell.m */,
+				831CD1AE1854168B006FA03B /* InAppSettingsPSTitleValueSpecifierCell.h */,
+				831CD1AF1854168B006FA03B /* InAppSettingsPSTitleValueSpecifierCell.m */,
+				831CD1B01854168B006FA03B /* InAppSettingsPSToggleSwitchSpecifierCell.h */,
+				831CD1B11854168B006FA03B /* InAppSettingsPSToggleSwitchSpecifierCell.m */,
+				831CD1B21854168B006FA03B /* InAppSettingsReader.h */,
+				831CD1B31854168B006FA03B /* InAppSettingsReader.m */,
+				831CD1B41854168B006FA03B /* InAppSettingsSpecifier.h */,
+				831CD1B51854168B006FA03B /* InAppSettingsSpecifier.m */,
+				831CD1B61854168B006FA03B /* InAppSettingsTableCell.h */,
+				831CD1B71854168B006FA03B /* InAppSettingsTableCell.m */,
+			);
+			name = InAppSettings;
+			path = InAppSettings/InAppSettings;
+			sourceTree = SOURCE_ROOT;
+		};
 		834B08E917F2B89D0011D376 = {
 			isa = PBXGroup;
 			children = (
@@ -147,12 +217,15 @@
 				831CD19C1854148A006FA03B /* NSTimer+BBlock.m */,
 				831CD19818541480006FA03B /* UIAlertView+BBlock.h */,
 				831CD19918541480006FA03B /* UIAlertView+BBlock.m */,
+				831CD1C318541A9F006FA03B /* UIActionSheet+BBlock.h */,
+				831CD1C418541A9F006FA03B /* UIActionSheet+BBlock.m */,
 				834B096917F2C4020011D376 /* BBlock.h */,
 				834B096A17F2C4020011D376 /* BBlock.m */,
 				834B097517F2D5DA0011D376 /* UIColor+Hex.h */,
 				834B097617F2D5DA0011D376 /* UIColor+Hex.m */,
 				834B097817F2D9570011D376 /* KGKeyboardChangeManager.h */,
 				834B097917F2D9570011D376 /* KGKeyboardChangeManager.m */,
+				831CD1A01854168B006FA03B /* InAppSettings */,
 				834B08FC17F2B89D0011D376 /* Supporting Files */,
 			);
 			path = Hark;
@@ -165,6 +238,7 @@
 				834B08FD17F2B89D0011D376 /* Hark-Info.plist */,
 				834B090317F2B89D0011D376 /* Hark-Prefix.pch */,
 				834B090717F2B89D0011D376 /* Images.xcassets */,
+				831CD19E1854162C006FA03B /* Settings.bundle */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -263,6 +337,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				831CD19F1854162C006FA03B /* Settings.bundle in Resources */,
 				834B090817F2B89D0011D376 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,13 +358,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				834B096B17F2C4020011D376 /* BBlock.m in Sources */,
+				831CD1B81854168B006FA03B /* InAppSettings.m in Sources */,
 				831CD19A18541480006FA03B /* UIAlertView+BBlock.m in Sources */,
+				831CD1BD1854168B006FA03B /* InAppSettingsPSTextFieldSpecifierCell.m in Sources */,
 				834B092617F2B8AD0011D376 /* HRKTextViewController.m in Sources */,
+				831CD1BE1854168B006FA03B /* InAppSettingsPSTitleValueSpecifierCell.m in Sources */,
+				831CD1C518541A9F006FA03B /* UIActionSheet+BBlock.m in Sources */,
 				834B090617F2B89D0011D376 /* HRKAppDelegate.m in Sources */,
+				831CD1C01854168B006FA03B /* InAppSettingsReader.m in Sources */,
 				834B097717F2D5DA0011D376 /* UIColor+Hex.m in Sources */,
+				831CD1C21854168B006FA03B /* InAppSettingsTableCell.m in Sources */,
+				831CD1BB1854168B006FA03B /* InAppSettingsPSMultiValueSpecifierTable.m in Sources */,
 				831CD19D1854148A006FA03B /* NSTimer+BBlock.m in Sources */,
 				834B090217F2B89D0011D376 /* main.m in Sources */,
+				831CD1B91854168B006FA03B /* InAppSettingsPSChildPaneSpecifierCell.m in Sources */,
+				831CD1BC1854168B006FA03B /* InAppSettingsPSSliderSpecifierCell.m in Sources */,
 				834B097A17F2D9570011D376 /* KGKeyboardChangeManager.m in Sources */,
+				831CD1BA1854168B006FA03B /* InAppSettingsPSMultiValueSpecifierCell.m in Sources */,
+				831CD1C11854168B006FA03B /* InAppSettingsSpecifier.m in Sources */,
+				831CD1BF1854168B006FA03B /* InAppSettingsPSToggleSwitchSpecifierCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		831CD19A18541480006FA03B /* UIAlertView+BBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CD19918541480006FA03B /* UIAlertView+BBlock.m */; };
+		831CD19D1854148A006FA03B /* NSTimer+BBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CD19C1854148A006FA03B /* NSTimer+BBlock.m */; };
 		83254B3917F2E538000E9C54 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83254B3817F2E538000E9C54 /* AdSupport.framework */; };
 		83254B3B17F2E540000E9C54 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 83254B3A17F2E540000E9C54 /* libz.dylib */; };
 		83254B3D17F2E54D000E9C54 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 83254B3C17F2E54D000E9C54 /* libsqlite3.dylib */; };
@@ -14,7 +16,6 @@
 		834B08F617F2B89D0011D376 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 834B08F517F2B89D0011D376 /* Foundation.framework */; };
 		834B08F817F2B89D0011D376 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 834B08F717F2B89D0011D376 /* CoreGraphics.framework */; };
 		834B08FA17F2B89D0011D376 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 834B08F917F2B89D0011D376 /* UIKit.framework */; };
-		834B090017F2B89D0011D376 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 834B08FE17F2B89D0011D376 /* InfoPlist.strings */; };
 		834B090217F2B89D0011D376 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 834B090117F2B89D0011D376 /* main.m */; };
 		834B090617F2B89D0011D376 /* HRKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 834B090517F2B89D0011D376 /* HRKAppDelegate.m */; };
 		834B090817F2B89D0011D376 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 834B090717F2B89D0011D376 /* Images.xcassets */; };
@@ -24,9 +25,7 @@
 		834B091917F2B89D0011D376 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 834B091717F2B89D0011D376 /* InfoPlist.strings */; };
 		834B091B17F2B89D0011D376 /* HarkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 834B091A17F2B89D0011D376 /* HarkTests.m */; };
 		834B092617F2B8AD0011D376 /* HRKTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 834B092517F2B8AD0011D376 /* HRKTextViewController.m */; };
-		834B096817F2C3730011D376 /* UIAlertView+BBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 834B096717F2C3730011D376 /* UIAlertView+BBlock.m */; };
 		834B096B17F2C4020011D376 /* BBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 834B096A17F2C4020011D376 /* BBlock.m */; };
-		834B096E17F2C4C10011D376 /* NSTimer+BBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 834B096D17F2C4C10011D376 /* NSTimer+BBlock.m */; };
 		834B097717F2D5DA0011D376 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 834B097617F2D5DA0011D376 /* UIColor+Hex.m */; };
 		834B097A17F2D9570011D376 /* KGKeyboardChangeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 834B097917F2D9570011D376 /* KGKeyboardChangeManager.m */; };
 /* End PBXBuildFile section */
@@ -42,6 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		831CD19818541480006FA03B /* UIAlertView+BBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIAlertView+BBlock.h"; path = "BBlock/Categories/UIKit/UIAlertView+BBlock.h"; sourceTree = SOURCE_ROOT; };
+		831CD19918541480006FA03B /* UIAlertView+BBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIAlertView+BBlock.m"; path = "BBlock/Categories/UIKit/UIAlertView+BBlock.m"; sourceTree = SOURCE_ROOT; };
+		831CD19B1854148A006FA03B /* NSTimer+BBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSTimer+BBlock.h"; path = "BBlock/Categories/Foundation/NSTimer+BBlock.h"; sourceTree = SOURCE_ROOT; };
+		831CD19C1854148A006FA03B /* NSTimer+BBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSTimer+BBlock.m"; path = "BBlock/Categories/Foundation/NSTimer+BBlock.m"; sourceTree = SOURCE_ROOT; };
 		83254B3817F2E538000E9C54 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		83254B3A17F2E540000E9C54 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		83254B3C17F2E54D000E9C54 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -51,7 +54,6 @@
 		834B08F717F2B89D0011D376 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		834B08F917F2B89D0011D376 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		834B08FD17F2B89D0011D376 /* Hark-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Hark-Info.plist"; sourceTree = "<group>"; };
-		834B08FF17F2B89D0011D376 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		834B090117F2B89D0011D376 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		834B090317F2B89D0011D376 /* Hark-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hark-Prefix.pch"; sourceTree = "<group>"; };
 		834B090417F2B89D0011D376 /* HRKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HRKAppDelegate.h; sourceTree = "<group>"; };
@@ -64,12 +66,8 @@
 		834B091A17F2B89D0011D376 /* HarkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HarkTests.m; sourceTree = "<group>"; };
 		834B092417F2B8AD0011D376 /* HRKTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRKTextViewController.h; sourceTree = "<group>"; };
 		834B092517F2B8AD0011D376 /* HRKTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRKTextViewController.m; sourceTree = "<group>"; };
-		834B096617F2C3730011D376 /* UIAlertView+BBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIAlertView+BBlock.h"; path = "BBlock/UIAlertView+BBlock.h"; sourceTree = SOURCE_ROOT; };
-		834B096717F2C3730011D376 /* UIAlertView+BBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIAlertView+BBlock.m"; path = "BBlock/UIAlertView+BBlock.m"; sourceTree = SOURCE_ROOT; };
 		834B096917F2C4020011D376 /* BBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBlock.h; path = BBlock/BBlock.h; sourceTree = SOURCE_ROOT; };
 		834B096A17F2C4020011D376 /* BBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBlock.m; path = BBlock/BBlock.m; sourceTree = SOURCE_ROOT; };
-		834B096C17F2C4C10011D376 /* NSTimer+BBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSTimer+BBlock.h"; path = "BBlock/NSTimer+BBlock.h"; sourceTree = SOURCE_ROOT; };
-		834B096D17F2C4C10011D376 /* NSTimer+BBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSTimer+BBlock.m"; path = "BBlock/NSTimer+BBlock.m"; sourceTree = SOURCE_ROOT; };
 		834B097517F2D5DA0011D376 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Hex.h"; path = "UIColorCategories/UIColor+Hex.h"; sourceTree = SOURCE_ROOT; };
 		834B097617F2D5DA0011D376 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Hex.m"; path = "UIColorCategories/UIColor+Hex.m"; sourceTree = SOURCE_ROOT; };
 		834B097817F2D9570011D376 /* KGKeyboardChangeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KGKeyboardChangeManager.h; path = KGKeyboardChangeManager/KGKeyboardChangeManager.h; sourceTree = SOURCE_ROOT; };
@@ -145,17 +143,16 @@
 				834B090517F2B89D0011D376 /* HRKAppDelegate.m */,
 				834B092417F2B8AD0011D376 /* HRKTextViewController.h */,
 				834B092517F2B8AD0011D376 /* HRKTextViewController.m */,
-				834B096617F2C3730011D376 /* UIAlertView+BBlock.h */,
-				834B096717F2C3730011D376 /* UIAlertView+BBlock.m */,
-				834B096C17F2C4C10011D376 /* NSTimer+BBlock.h */,
-				834B096D17F2C4C10011D376 /* NSTimer+BBlock.m */,
+				831CD19B1854148A006FA03B /* NSTimer+BBlock.h */,
+				831CD19C1854148A006FA03B /* NSTimer+BBlock.m */,
+				831CD19818541480006FA03B /* UIAlertView+BBlock.h */,
+				831CD19918541480006FA03B /* UIAlertView+BBlock.m */,
 				834B096917F2C4020011D376 /* BBlock.h */,
 				834B096A17F2C4020011D376 /* BBlock.m */,
 				834B097517F2D5DA0011D376 /* UIColor+Hex.h */,
 				834B097617F2D5DA0011D376 /* UIColor+Hex.m */,
 				834B097817F2D9570011D376 /* KGKeyboardChangeManager.h */,
 				834B097917F2D9570011D376 /* KGKeyboardChangeManager.m */,
-				834B090717F2B89D0011D376 /* Images.xcassets */,
 				834B08FC17F2B89D0011D376 /* Supporting Files */,
 			);
 			path = Hark;
@@ -164,10 +161,10 @@
 		834B08FC17F2B89D0011D376 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				834B08FD17F2B89D0011D376 /* Hark-Info.plist */,
-				834B08FE17F2B89D0011D376 /* InfoPlist.strings */,
 				834B090117F2B89D0011D376 /* main.m */,
+				834B08FD17F2B89D0011D376 /* Hark-Info.plist */,
 				834B090317F2B89D0011D376 /* Hark-Prefix.pch */,
+				834B090717F2B89D0011D376 /* Images.xcassets */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -266,7 +263,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				834B090017F2B89D0011D376 /* InfoPlist.strings in Resources */,
 				834B090817F2B89D0011D376 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,12 +282,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				834B096817F2C3730011D376 /* UIAlertView+BBlock.m in Sources */,
 				834B096B17F2C4020011D376 /* BBlock.m in Sources */,
+				831CD19A18541480006FA03B /* UIAlertView+BBlock.m in Sources */,
 				834B092617F2B8AD0011D376 /* HRKTextViewController.m in Sources */,
-				834B096E17F2C4C10011D376 /* NSTimer+BBlock.m in Sources */,
 				834B090617F2B89D0011D376 /* HRKAppDelegate.m in Sources */,
 				834B097717F2D5DA0011D376 /* UIColor+Hex.m in Sources */,
+				831CD19D1854148A006FA03B /* NSTimer+BBlock.m in Sources */,
 				834B090217F2B89D0011D376 /* main.m in Sources */,
 				834B097A17F2D9570011D376 /* KGKeyboardChangeManager.m in Sources */,
 			);
@@ -316,14 +312,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		834B08FE17F2B89D0011D376 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				834B08FF17F2B89D0011D376 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		834B091717F2B89D0011D376 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -208,12 +208,16 @@
           if(buttonIndex == actionSheet.destructiveButtonIndex){
               UIActivityViewController *activityViewController =
               [[UIActivityViewController alloc] initWithActivityItems:@[wself.textView.text] applicationActivities:nil];
+              // TODO: handle iPhone/iPad
               [wself presentViewController:activityViewController animated:YES completion:nil];
+              [wself.textView resignFirstResponder];
           }else if(buttonIndex != actionSheet.cancelButtonIndex){
               InAppSettingsModalViewController *settingViewController = [InAppSettingsModalViewController new];
+              settingViewController.modalPresentationStyle = UIModalPresentationFormSheet;
               [wself presentViewController:settingViewController animated:YES completion:nil];
+              [wself.textView resignFirstResponder];
           }
-      }] showInView:self.view];
+      }] showFromBarButtonItem:sender animated:YES];
 }
 
 - (void)readButtonAction:(id)sender{

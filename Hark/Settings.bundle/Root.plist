@@ -22,7 +22,7 @@
 			<key>MinimumValue</key>
 			<integer>0</integer>
 			<key>MinimumValueImage</key>
-			<string></string>
+			<string>Speed</string>
 			<key>Type</key>
 			<string>PSSliderSpecifier</string>
 		</dict>
@@ -44,7 +44,7 @@
 			<key>MinimumValue</key>
 			<integer>0</integer>
 			<key>MinimumValueImage</key>
-			<string></string>
+			<string>Volume</string>
 			<key>Type</key>
 			<string>PSSliderSpecifier</string>
 		</dict>
@@ -66,7 +66,7 @@
 			<key>MinimumValue</key>
 			<real>0.5</real>
 			<key>MinimumValueImage</key>
-			<string></string>
+			<string>Pitch</string>
 			<key>Type</key>
 			<string>PSSliderSpecifier</string>
 		</dict>

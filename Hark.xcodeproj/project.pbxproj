@@ -22,6 +22,7 @@
 		831CD1C11854168B006FA03B /* InAppSettingsSpecifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CD1B51854168B006FA03B /* InAppSettingsSpecifier.m */; };
 		831CD1C21854168B006FA03B /* InAppSettingsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CD1B71854168B006FA03B /* InAppSettingsTableCell.m */; };
 		831CD1C518541A9F006FA03B /* UIActionSheet+BBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CD1C418541A9F006FA03B /* UIActionSheet+BBlock.m */; };
+		8322357B188E464E00A35515 /* Settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8322357A188E464E00A35515 /* Settings@2x.png */; };
 		83254B3917F2E538000E9C54 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83254B3817F2E538000E9C54 /* AdSupport.framework */; };
 		83254B3B17F2E540000E9C54 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 83254B3A17F2E540000E9C54 /* libz.dylib */; };
 		83254B3D17F2E54D000E9C54 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 83254B3C17F2E54D000E9C54 /* libsqlite3.dylib */; };
@@ -84,6 +85,7 @@
 		831CD1B71854168B006FA03B /* InAppSettingsTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppSettingsTableCell.m; sourceTree = "<group>"; };
 		831CD1C318541A9F006FA03B /* UIActionSheet+BBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIActionSheet+BBlock.h"; path = "BBlock/Categories/UIKit/UIActionSheet+BBlock.h"; sourceTree = SOURCE_ROOT; };
 		831CD1C418541A9F006FA03B /* UIActionSheet+BBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIActionSheet+BBlock.m"; path = "BBlock/Categories/UIKit/UIActionSheet+BBlock.m"; sourceTree = SOURCE_ROOT; };
+		8322357A188E464E00A35515 /* Settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings@2x.png"; sourceTree = "<group>"; };
 		83254B3817F2E538000E9C54 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		83254B3A17F2E540000E9C54 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		83254B3C17F2E54D000E9C54 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -172,6 +174,14 @@
 			path = InAppSettings/InAppSettings;
 			sourceTree = SOURCE_ROOT;
 		};
+		83223579188E464E00A35515 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				8322357A188E464E00A35515 /* Settings@2x.png */,
+			);
+			path = Images;
+			sourceTree = SOURCE_ROOT;
+		};
 		834B08E917F2B89D0011D376 = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +244,7 @@
 		834B08FC17F2B89D0011D376 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				83223579188E464E00A35515 /* Images */,
 				834B090117F2B89D0011D376 /* main.m */,
 				834B08FD17F2B89D0011D376 /* Hark-Info.plist */,
 				834B090317F2B89D0011D376 /* Hark-Prefix.pch */,
@@ -338,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				831CD19F1854162C006FA03B /* Settings.bundle in Resources */,
+				8322357B188E464E00A35515 /* Settings@2x.png in Resources */,
 				834B090817F2B89D0011D376 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

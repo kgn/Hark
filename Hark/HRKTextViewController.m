@@ -13,7 +13,6 @@
 #import "NSTimer+BBlock.h"
 #import "BBlock.h"
 #import "KGKeyboardChangeManager.h"
-#import "UIActionSheet+BBlock.h"
 #import "InAppSettings.h"
 
 @interface HRKTextViewController()
@@ -47,9 +46,14 @@
         NSLog(@"%@", error);
     }
 
-    self.navigationItem.leftBarButtonItem =
+    UIBarButtonItem *settingsBarButtonItem =
+    [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Settings"] style:UIBarButtonItemStylePlain
+                                                  target:self action:@selector(settingsButtonAction:)];
+    UIBarButtonItem *actionBarButtonItem =
     [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
                                                   target:self action:@selector(actionButtonAction:)];
+    self.navigationItem.leftBarButtonItems = @[settingsBarButtonItem, actionBarButtonItem];
+
     self.navigationItem.rightBarButtonItem =
     [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay
                                                   target:self action:@selector(readButtonAction:)];
@@ -196,28 +200,23 @@
     return currentLanguage;
 }
 
+- (void)settingsButtonAction:(id)sender{
+    [[NSUserDefaults standardUserDefaults] setObject:self.textView.text forKey:@"app.lastText"];
+
+    InAppSettingsModalViewController *settingViewController = [InAppSettingsModalViewController new];
+    settingViewController.modalPresentationStyle = UIModalPresentationFormSheet;
+    [self presentViewController:settingViewController animated:YES completion:nil];
+    [self.textView resignFirstResponder];
+}
+
 - (void)actionButtonAction:(id)sender{
     [[NSUserDefaults standardUserDefaults] setObject:self.textView.text forKey:@"app.lastText"];
 
-    BBlockWeakSelf wself = self;
-    [[[UIActionSheet alloc]
-      initWithTitle:nil cancelButtonTitle:NSLocalizedString(@"Cancel", @"Cancel button")
-      destructiveButtonTitle:NSLocalizedString(@"Share", @"Share button")
-      otherButtonTitle:NSLocalizedString(@"Settings", @"Settings button")
-      completionBlock:^(NSInteger buttonIndex, UIActionSheet *actionSheet){
-          if(buttonIndex == actionSheet.destructiveButtonIndex){
-              UIActivityViewController *activityViewController =
-              [[UIActivityViewController alloc] initWithActivityItems:@[wself.textView.text] applicationActivities:nil];
-              // TODO: handle iPhone/iPad
-              [wself presentViewController:activityViewController animated:YES completion:nil];
-              [wself.textView resignFirstResponder];
-          }else if(buttonIndex != actionSheet.cancelButtonIndex){
-              InAppSettingsModalViewController *settingViewController = [InAppSettingsModalViewController new];
-              settingViewController.modalPresentationStyle = UIModalPresentationFormSheet;
-              [wself presentViewController:settingViewController animated:YES completion:nil];
-              [wself.textView resignFirstResponder];
-          }
-      }] showFromBarButtonItem:sender animated:YES];
+    UIActivityViewController *activityViewController =
+    [[UIActivityViewController alloc] initWithActivityItems:@[self.textView.text] applicationActivities:nil];
+    // TODO: handle iPhone/iPad
+    [self presentViewController:activityViewController animated:YES completion:nil];
+    [self.textView resignFirstResponder];
 }
 
 - (void)readButtonAction:(id)sender{

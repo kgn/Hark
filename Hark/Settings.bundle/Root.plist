@@ -18,11 +18,11 @@
 			<key>MaximumValue</key>
 			<integer>1</integer>
 			<key>MaximumValueImage</key>
-			<string></string>
+			<string>SpeedMax</string>
 			<key>MinimumValue</key>
 			<integer>0</integer>
 			<key>MinimumValueImage</key>
-			<string>Speed</string>
+			<string>SpeedMin</string>
 			<key>Type</key>
 			<string>PSSliderSpecifier</string>
 		</dict>
@@ -40,11 +40,11 @@
 			<key>MaximumValue</key>
 			<integer>1</integer>
 			<key>MaximumValueImage</key>
-			<string></string>
+			<string>VolumeMax</string>
 			<key>MinimumValue</key>
 			<integer>0</integer>
 			<key>MinimumValueImage</key>
-			<string>Volume</string>
+			<string>VolumeMin</string>
 			<key>Type</key>
 			<string>PSSliderSpecifier</string>
 		</dict>
@@ -62,11 +62,11 @@
 			<key>MaximumValue</key>
 			<integer>2</integer>
 			<key>MaximumValueImage</key>
-			<string></string>
+			<string>PitchMax</string>
 			<key>MinimumValue</key>
 			<real>0.5</real>
 			<key>MinimumValueImage</key>
-			<string>Pitch</string>
+			<string>PitchMin</string>
 			<key>Type</key>
 			<string>PSSliderSpecifier</string>
 		</dict>

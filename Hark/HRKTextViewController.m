@@ -159,9 +159,46 @@
         self.startLocation = self.textView.selectedRange.location;
         text = [text substringWithRange:self.textView.selectedRange];
     }
-    
+
+    NSString *voiceLanguage = [self voiceLanguageForText:text];
+    // Build this our self cuase NSLocaleIdentifier uses "_"
+    NSString *currentVoiceLanguage = [NSString stringWithFormat:@"%@-%@",
+                                      [[NSLocale currentLocale] objectForKey:NSLocaleLanguageCode],
+                                      [[NSLocale currentLocale] objectForKey:NSLocaleCountryCode]];
+    if([voiceLanguage isEqualToString:currentVoiceLanguage]){
+        [self readText:text withVoiceLanguage:nil];
+    }else{
+        BBlockWeakSelf wself = self;
+
+        NSString *displayLanguage = [[NSLocale currentLocale] displayNameForKey:NSLocaleIdentifier value:voiceLanguage];
+        NSString *currentDisplayLanguage = [[NSLocale currentLocale] displayNameForKey:NSLocaleIdentifier value:currentVoiceLanguage];
+
+        UIAlertView *alertView =
+        [[UIAlertView alloc]
+         initWithTitle:NSLocalizedString(@"Foreign Language Detected", @"Foreign language alert title")
+         message:NSLocalizedString(@"We think the text might be in another language, which language would you like the text read in?", @"Foreign language alert message")
+         delegate:nil cancelButtonTitle:NSLocalizedString(@"Cancel", @"Cancel button")
+         otherButtonTitles:displayLanguage, currentDisplayLanguage, nil];
+        [alertView setCompletionBlock:^(NSInteger buttonIndex, UIAlertView *alertView) {
+            if(buttonIndex == alertView.cancelButtonIndex){
+                return;
+            }
+
+            if([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:displayLanguage]){
+                [wself readText:text withVoiceLanguage:voiceLanguage];
+            }else{
+                [wself readText:text withVoiceLanguage:nil];
+            }
+        }];
+        [alertView show];
+    }
+}
+
+- (void)readText:(NSString *)text withVoiceLanguage:(NSString *)voiceLanguage{
     AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:text];
-    utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:[self voiceLanguageForText:text]];
+    if([voiceLanguage length]){
+        utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:voiceLanguage];
+    }
     utterance.rate = [[NSUserDefaults standardUserDefaults] floatForKey:@"utterance.rate"];
     utterance.volume = [[NSUserDefaults standardUserDefaults] floatForKey:@"utterance.volume"];
     utterance.pitchMultiplier = [[NSUserDefaults standardUserDefaults] floatForKey:@"utterance.pitchMultiplier"];
@@ -191,7 +228,6 @@
         NSString *languageCode = [[language componentsSeparatedByString:@"-"] firstObject];
         for(NSString *language in availableLanguages){
             if([language hasPrefix:languageCode]){
-                NSLog(@"Falling back on: %@", language);
                 return language;
             }
         }

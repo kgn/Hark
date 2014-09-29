@@ -16,15 +16,7 @@ class SpeechEngine: NSObject, AVSpeechSynthesizerDelegate {
         return speechSynthesizer
     }()
 
-    var isSpeaking: Bool {
-        return self.speechSynthesizer.speaking
-    }
-
-    func readText(text: String, voiceLanguage: String?, rate: Float = 1, volume: Float = 1, pitchMultiplier: Float = 1) {
-        if self.isSpeaking {
-            return
-        }
-
+    func readText(text: String, voiceLanguage: String? = nil, rate: Float = 1, volume: Float = 1, pitchMultiplier: Float = 1) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.rate = rate
         utterance.volume = volume
@@ -32,39 +24,53 @@ class SpeechEngine: NSObject, AVSpeechSynthesizerDelegate {
         if let language = voiceLanguage {
             utterance.voice = AVSpeechSynthesisVoice(language: language)
         }
-
         self.speechSynthesizer.speakUtterance(utterance)
     }
 
-//    func voiceLanguage(text: String) -> String {
-//    CFRange range = CFRangeMake(0, MIN(400, text.length));
-//    NSString *currentLanguage = [AVSpeechSynthesisVoice currentLanguageCode];
-//    NSString *language = (NSString *)CFBridgingRelease(CFStringTokenizerCopyBestStringLanguage((CFStringRef)text, range));
-//    if(language && ![currentLanguage hasPrefix:language]){
-//    NSArray *availableLanguages = [[AVSpeechSynthesisVoice speechVoices] valueForKeyPath:@"language"];
-//    if([availableLanguages containsObject:language]){
-//    return language;
-//    }
-//
-//    // TODO: also support Cantonese (zh-HK)
-//    // Language code translations for simplified and traditional Chinese
-//    if([language isEqualToString:@"zh-Hans"]){
-//    return @"zh-CN";
-//    }
-//    if([language isEqualToString:@"zh-Hant"]){
-//    return @"zh-TW";
-//    }
-//
-//    // Fall back to searching for languages starting with the current language code
-//    NSString *languageCode = [[language componentsSeparatedByString:@"-"] firstObject];
-//    for(NSString *language in availableLanguages){
-//    if([language hasPrefix:languageCode]){
-//    return language;
-//    }
-//    }
-//    }
-//
-//    return currentLanguage;
-//    }
+    func stopReading() {
+        self.speechSynthesizer.stopSpeakingAtBoundary(.Immediate)
+    }
+
+    func systemVoiceLanguage() -> String {
+        let languageCode = NSLocale.currentLocale().objectForKey(NSLocaleLanguageCode) as String
+        let countryCode = NSLocale.currentLocale().objectForKey(NSLocaleCountryCode) as String
+        return "\(languageCode)-\(countryCode)"
+    }
+
+    func voiceLanguage(text: String) -> String {
+        let cftext: CFString = text as NSString
+        let range = CFRangeMake(0, min(400, countElements(text)))
+        let currentLanguage = AVSpeechSynthesisVoice.currentLanguageCode()
+        let language: NSString = CFStringTokenizerCopyBestStringLanguage(cftext, range)
+
+        if !currentLanguage.hasPrefix(language) {
+            var availableLanguages: [String] = []
+            for l in AVSpeechSynthesisVoice.speechVoices() {
+                availableLanguages.append(l.language)
+            }
+            if contains(availableLanguages, language) {
+                return language
+            }
+
+            // TODO: also support Cantonese (zh-HK)
+            // Language code translations for simplified and traditional Chinese
+            if language == "zh-Hans" {
+                return "zh-CN"
+            }
+            if language  == "zh-Hant" {
+                return "zh-TW"
+            }
+
+            // Fall back to searching for languages starting with the current language code
+            let languageCode = language.componentsSeparatedByString("-").first as String
+            for l in availableLanguages {
+                if l.hasPrefix(languageCode) {
+                    return l
+                }
+            }
+        }
+
+        return currentLanguage
+    }
 
 }

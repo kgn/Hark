@@ -179,6 +179,7 @@
          message:NSLocalizedString(@"We think the text might be in another language, which language would you like the text read in?", @"Foreign language alert message")
          delegate:nil cancelButtonTitle:NSLocalizedString(@"Cancel", @"Cancel button")
          otherButtonTitles:displayLanguage, currentDisplayLanguage, nil];
+
         [alertView setCompletionBlock:^(NSInteger buttonIndex, UIAlertView *alertView) {
             if(buttonIndex == alertView.cancelButtonIndex){
                 return;
@@ -190,6 +191,7 @@
                 [wself readText:text withVoiceLanguage:nil];
             }
         }];
+
         [alertView show];
     }
 }

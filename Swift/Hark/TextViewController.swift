@@ -9,16 +9,21 @@
 import UIKit
 import AVFoundation
 
-// TODO: Implement keyboard logic to move the text view out of the way
+// TODO: *Implement keyboard logic to move the text view out of the way
 // TODO: Implement auto save?
 // TODO: Implement settings
 
 class TextViewController: UIViewController, UITextViewDelegate, AVSpeechSynthesizerDelegate {
 
+    private var textViewBottomConstraint: NSLayoutConstraint?
     lazy internal var textView: UITextView = {
         let textView = UITextView()
         textView.delegate = self
         textView.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+        self.view.addSubview(textView)
+        textView.pinToSideEdgesOfSuperview()
+        textView.pinToTopEdgeOfSuperview()
+        self.textViewBottomConstraint = textView.pinToBottomEdgeOfSuperview()
         return textView
     }()
 
@@ -65,15 +70,17 @@ class TextViewController: UIViewController, UITextViewDelegate, AVSpeechSynthesi
             message: NSLocalizedString("There is new text in your clipboard, would you like to use it?", comment: "Replace with clipboard message"),
             preferredStyle: .Alert
         )
-        alertController.addAction(UIAlertAction(title: NSLocalizedString("Use Text", comment: "Use text button"), style: UIAlertActionStyle.Default) { action in
-            self.textView.text = pasteboard.string!
-            self.navigationItem.leftBarButtonItem?.enabled = true
-            self.navigationItem.rightBarButtonItem?.enabled = true
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Use Text", comment: "Use text button"), style: UIAlertActionStyle.Default) { _ in
+            self.setText(pasteboard.string)
         })
-        alertController.addAction(UIAlertAction(title: NSLocalizedString("No", comment: "No button"), style: UIAlertActionStyle.Cancel) { action in
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("No", comment: "No button"), style: UIAlertActionStyle.Cancel) { _ in
             NSUserDefaults.standardUserDefaults().setObject(pasteboard.string, forKey:"app.askedText")
         })
         self.presentViewController(alertController, animated: true, completion: nil)
+    }
+
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
     override func viewDidLoad() {
@@ -86,11 +93,33 @@ class TextViewController: UIViewController, UITextViewDelegate, AVSpeechSynthesi
         self.navigationItem.leftBarButtonItems = [settingsBarButtonItem, actionBarButtonItem]
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Play, target: self, action: "readButtonAction")
 
-        self.view.addSubview(self.textView)
-        self.textView.becomeFirstResponder()
-        self.textView.pinToEdgesOfSuperview()
-        self.textView.text = NSUserDefaults.standardUserDefaults().stringForKey("app.lastText")
-        self.updateNavigationButtons()
+        self.setText(NSUserDefaults.standardUserDefaults().stringForKey("app.lastText"))
+
+        NSNotificationCenter.defaultCenter().addObserverForName(UIKeyboardWillShowNotification, object: nil, queue: nil) { notification in
+            if let textViewBottomConstraint = self.textViewBottomConstraint {
+                if let userInfo = notification.userInfo {
+                    let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as NSValue).CGRectValue()
+                    let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as NSNumber
+                    // TODO: figure out this conversion
+//                    let curve: UIViewAnimationOptions! = UIViewAnimationOptions.fromRaw(UInt((userInfo[UIKeyboardAnimationCurveUserInfoKey] as NSNumber).unsignedIntValue << 16))
+                    textViewBottomConstraint.constant = -keyboardFrame.size.height
+                    UIView.animateWithDuration(duration, delay: 0, options: .CurveEaseInOut, animations: {
+                        self.view.layoutIfNeeded()
+                    }, completion: nil)
+                }
+            }
+        }
+        NSNotificationCenter.defaultCenter().addObserverForName(UIKeyboardWillHideNotification, object: nil, queue: nil) { notification in
+            if let textViewBottomConstraint = self.textViewBottomConstraint {
+                if let userInfo = notification.userInfo {
+                    let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as NSNumber
+                    textViewBottomConstraint.constant = 0
+                    UIView.animateWithDuration(duration, delay: 0, options: .CurveEaseInOut, animations: {
+                        self.view.layoutIfNeeded()
+                    }, completion: nil)
+                }
+            }
+        }
 
         let menuItem = UIMenuItem(title: NSLocalizedString("Read", comment: "Menu item read title"), action: "readMenuAction")
         UIMenuController.sharedMenuController().menuItems = [menuItem]
@@ -102,7 +131,10 @@ class TextViewController: UIViewController, UITextViewDelegate, AVSpeechSynthesi
         if let error = audioError {
             println("audio error: \(error.localizedDescription)")
         }
+    }
 
+    override func viewDidAppear(animated: Bool) {
+        self.textView.becomeFirstResponder()
     }
 
     override func canPerformAction(action: Selector, withSender sender: AnyObject?) -> Bool {
@@ -110,6 +142,11 @@ class TextViewController: UIViewController, UITextViewDelegate, AVSpeechSynthesi
             return true
         }
         return false
+    }
+
+    private func setText(text: String?) {
+        self.textView.text = text
+        self.updateNavigationButtons()
     }
 
     private func updateNavigationButtons() {
@@ -134,6 +171,7 @@ class TextViewController: UIViewController, UITextViewDelegate, AVSpeechSynthesi
             text = (text as NSString).substringWithRange(self.textView.selectedRange)
         }
 
+        // TODO: load defaults
         let rate: Float = 0.5//NSUserDefaults.standardUserDefaults().floatForKey("utterance.rate")
         let volume: Float = 1//NSUserDefaults.standardUserDefaults().floatForKey("utterance.volume")
         let pitchMultiplier: Float = 1//NSUserDefaults.standardUserDefaults().floatForKey("utterance.pitchMultiplier")
@@ -161,10 +199,10 @@ class TextViewController: UIViewController, UITextViewDelegate, AVSpeechSynthesi
             message: NSLocalizedString("The text appears to be in a different language than the system settings, which language would you like the text read in?", comment: "Foreign language alert message"),
             preferredStyle: .Alert
         )
-        alertController.addAction(UIAlertAction(title: displayLanguage, style: UIAlertActionStyle.Default) { action in
+        alertController.addAction(UIAlertAction(title: displayLanguage, style: UIAlertActionStyle.Default) { _ in
             self.speechEngine.readText(text, rate: rate, volume: volume, pitchMultiplier: pitchMultiplier)
         })
-        alertController.addAction(UIAlertAction(title: systemDisplayLanguage, style: UIAlertActionStyle.Default) { action in
+        alertController.addAction(UIAlertAction(title: systemDisplayLanguage, style: UIAlertActionStyle.Default) { _ in
             self.speechEngine.readText(text, voiceLanguage: systemVoiceLanguage, rate: rate, volume: volume, pitchMultiplier: pitchMultiplier)
         })
         alertController.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel button"), style: UIAlertActionStyle.Cancel, handler: nil))
@@ -176,12 +214,11 @@ class TextViewController: UIViewController, UITextViewDelegate, AVSpeechSynthesi
     }
 
     private func removeAttributes() {
-        let textRange = NSMakeRange(0, countElements(self.textView.text))
-        let textToReset = NSMutableAttributedString(string: self.textView.text)
-        textToReset.addAttribute(NSFontAttributeName, value: UIFont.preferredFontForTextStyle(UIFontTextStyleBody), range:textRange)
-        textToReset.addAttribute(NSBackgroundColorAttributeName, value: UIColor.clearColor(), range: textRange)
-        textToReset.addAttribute(NSForegroundColorAttributeName, value: UIColor.blackColor(), range: textRange)
-        self.textView.attributedText = textToReset;
+        self.textView.attributedText = NSAttributedString(string: self.textView.text, attributes: [
+            NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleBody),
+            NSBackgroundColorAttributeName: UIColor.clearColor(),
+            NSForegroundColorAttributeName: UIColor.blackColor()
+        ])
     }
 
     // MARK: - Actions

@@ -9,8 +9,6 @@
 import UIKit
 import AVFoundation
 
-// TODO: *Implement keyboard logic to move the text view out of the way
-// TODO: Implement auto save?
 // TODO: Implement settings
 
 class TextViewController: UIViewController, UITextViewDelegate, AVSpeechSynthesizerDelegate {
@@ -27,6 +25,7 @@ class TextViewController: UIViewController, UITextViewDelegate, AVSpeechSynthesi
         return textView
     }()
 
+    private var timer: NSTimer?
     private var startLocation: Int = 0
 
     lazy private var speechEngine: SpeechEngine = {
@@ -43,11 +42,12 @@ class TextViewController: UIViewController, UITextViewDelegate, AVSpeechSynthesi
     var isSpeaking: Bool { return self.speaking }
 
     internal func startAutoSaveTimer() {
-
+        self.stopAutoSaveTimer()
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(20, target: self, selector: "saveText", userInfo: nil, repeats: true)
     }
 
     internal func stopAutoSaveTimer() {
-
+        self.timer?.invalidate()
     }
 
     internal func promptToReplaceTextFromPasteboard() {
@@ -80,6 +80,7 @@ class TextViewController: UIViewController, UITextViewDelegate, AVSpeechSynthesi
     }
 
     deinit {
+        self.stopAutoSaveTimer()
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
@@ -95,31 +96,8 @@ class TextViewController: UIViewController, UITextViewDelegate, AVSpeechSynthesi
 
         self.setText(NSUserDefaults.standardUserDefaults().stringForKey("app.lastText"))
 
-        NSNotificationCenter.defaultCenter().addObserverForName(UIKeyboardWillShowNotification, object: nil, queue: nil) { notification in
-            if let textViewBottomConstraint = self.textViewBottomConstraint {
-                if let userInfo = notification.userInfo {
-                    let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as NSValue).CGRectValue()
-                    let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as NSNumber
-                    // TODO: figure out this conversion
-//                    let curve: UIViewAnimationOptions! = UIViewAnimationOptions.fromRaw(UInt((userInfo[UIKeyboardAnimationCurveUserInfoKey] as NSNumber).unsignedIntValue << 16))
-                    textViewBottomConstraint.constant = -keyboardFrame.size.height
-                    UIView.animateWithDuration(duration, delay: 0, options: .CurveEaseInOut, animations: {
-                        self.view.layoutIfNeeded()
-                    }, completion: nil)
-                }
-            }
-        }
-        NSNotificationCenter.defaultCenter().addObserverForName(UIKeyboardWillHideNotification, object: nil, queue: nil) { notification in
-            if let textViewBottomConstraint = self.textViewBottomConstraint {
-                if let userInfo = notification.userInfo {
-                    let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as NSNumber
-                    textViewBottomConstraint.constant = 0
-                    UIView.animateWithDuration(duration, delay: 0, options: .CurveEaseInOut, animations: {
-                        self.view.layoutIfNeeded()
-                    }, completion: nil)
-                }
-            }
-        }
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
 
         let menuItem = UIMenuItem(title: NSLocalizedString("Read", comment: "Menu item read title"), action: "readMenuAction")
         UIMenuController.sharedMenuController().menuItems = [menuItem]
@@ -128,9 +106,7 @@ class TextViewController: UIViewController, UITextViewDelegate, AVSpeechSynthesi
 
         var audioError: NSError?
         AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: &audioError)
-        if let error = audioError {
-            println("audio error: \(error.localizedDescription)")
-        }
+        assert(audioError == nil, "Audio error: \(audioError!.localizedDescription)")
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -209,10 +185,6 @@ class TextViewController: UIViewController, UITextViewDelegate, AVSpeechSynthesi
         self.presentViewController(alertController, animated: true, completion: nil)
     }
 
-    private func saveText() {
-        NSUserDefaults.standardUserDefaults().setObject(self.textView.text, forKey:"app.lastText")
-    }
-
     private func removeAttributes() {
         self.textView.attributedText = NSAttributedString(string: self.textView.text, attributes: [
             NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleBody),
@@ -222,6 +194,10 @@ class TextViewController: UIViewController, UITextViewDelegate, AVSpeechSynthesi
     }
 
     // MARK: - Actions
+
+    @objc private func saveText() {
+        NSUserDefaults.standardUserDefaults().setObject(self.textView.text, forKey:"app.lastText")
+    }
 
     @objc private func settingsButtonAction() {
         self.saveText()
@@ -253,6 +229,35 @@ class TextViewController: UIViewController, UITextViewDelegate, AVSpeechSynthesi
 
     func textViewDidChange(textView: UITextView) {
         self.updateNavigationButtons()
+    }
+
+    // MARK: - UIKeyboardNotification
+
+    @objc private func keyboardWillShow(notification: NSNotification) {
+        if let textViewBottomConstraint = self.textViewBottomConstraint {
+            if let userInfo = notification.userInfo {
+                let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as NSValue).CGRectValue()
+                let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as NSNumber
+                // TODO: figure out this conversion
+                // let curve: UIViewAnimationOptions! = UIViewAnimationOptions.fromRaw(UInt((userInfo[UIKeyboardAnimationCurveUserInfoKey] as NSNumber).unsignedIntValue << 16))
+                textViewBottomConstraint.constant = -keyboardFrame.size.height
+                UIView.animateWithDuration(duration, delay: 0, options: .CurveEaseInOut, animations: {
+                    self.view.layoutIfNeeded()
+                }, completion: nil)
+            }
+        }
+    }
+
+    @objc private func keyboardWillHide(notification: NSNotification) {
+        if let textViewBottomConstraint = self.textViewBottomConstraint {
+            if let userInfo = notification.userInfo {
+                let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as NSNumber
+                textViewBottomConstraint.constant = 0
+                UIView.animateWithDuration(duration, delay: 0, options: .CurveEaseInOut, animations: {
+                    self.view.layoutIfNeeded()
+                }, completion: nil)
+            }
+        }
     }
 
     // MARK: - AVSpeechSynthesizerDelegate
